@@ -1,310 +1,278 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Swaroop Reddy | Automotive QA Leader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Swaroop Reddy | Automotive QA Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main: #15bbf9;
-      --main-dark: #0d365e;
-      --bg: #11151b;
-      --glass: rgba(16,26,39,0.93);
-      --card: #182029;
-      --highlight: #ffca2b;
-      --primary: #1cf0ad;
-      --accent: #1150e6;
-      --border: #16c6e6;
-      --muted: #9fd4e2;
-      --radius: 2.3rem;
-      --shadow: 0 10px 32px #10c8ee24;
-      --nav-height: 60px;
+      --accent: #00e4b6;
+      --accent-dark: #05786b;
+      --bg: #0d1722;
+      --sidebar: #192736e8;
+      --glass: rgba(20,30,40,0.95);
+      --card: #17212b;
+      --shadow: 0 6px 32px #00e4b619;
+      --radius: 1.7rem;
+      --highlight: #ffe38a;
+      --primary: #41d6ff;
+      --text: #e2f4fd;
+      --muted: #96b2c6;
     }
-    html {scroll-behavior: smooth;}
     body {
-      background: linear-gradient(120deg, #151d2d 0%, #142539 85%, #10151b 100%);
-      color: #f0fbff; font-family: 'Inter', 'Montserrat', Arial, sans-serif;
-      margin: 0; min-height: 100vh;
-      padding-bottom: 90px;
+      margin: 0; min-height: 100vh; font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #172440 0%, #06333b 100%);
+      color: var(--text);
+      display: flex;
     }
-    header {
-      width: 100%; background: var(--glass); box-shadow: var(--shadow);
-      position: fixed; z-index: 999; top: 0; left: 0;
-      padding: 0; height: var(--nav-height);
-      border-bottom: 1.5px solid #25d7ff23;
-      display: flex; align-items: center;
+    .sidebar {
+      width: 260px;
+      min-height: 100vh;
+      background: var(--sidebar);
+      position: fixed; left: 0; top: 0;
+      box-shadow: var(--shadow);
+      z-index: 1001;
+      display: flex; flex-direction: column; align-items: center; padding: 34px 0 22px 0;
+      transition: left .3s;
     }
-    .nav-container {
-      max-width: 1050px; margin: auto; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 22px; width: 100%;
-    }
-    .nav-logo { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
-      font-size: 1.23rem; letter-spacing: 0.02em; color: var(--main);}
-    .nav-links {display: flex; gap: 2rem;}
-    .nav-links a {
-      text-decoration: none; color: #e6f6fd; font-weight: 700; font-size: 1rem;
-      border-bottom: 2.5px solid transparent; padding: 2px 0; transition: color .15s, border .18s;
-    }
-    .nav-links a.active, .nav-links a:hover { color: var(--primary); border-bottom: 2.5px solid var(--primary);}
-    .nav-social { display: flex; gap: 1.1rem;}
-    .nav-social a { color: var(--muted); font-size: 1.22rem; transition: color .22s;}
-    .nav-social a:hover { color: var(--main);}
-    /* Hamburger menu */
-    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; margin-left: 15px;}
-    .hamburger span {width: 26px; height: 3px; background: var(--primary); border-radius: 3px; transition: all .27s;}
-    @media (max-width: 750px) {
-      .nav-container {padding: 0 9px;}
-      .nav-links {
-        position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--card); 
-        flex-direction: column; align-items: flex-start; gap: 0; z-index: 1001;
-        width: 100vw; padding: 1rem 0 1.5rem 0;
-        box-shadow: 0 7px 32px #18c5ec24;
-        display: none;
-      }
-      .nav-links.open { display: flex;}
-      .nav-links a { padding: 16px 24px; width: 100%; font-size: 1.09rem; border-bottom: 1.5px solid #14233a;}
-      .hamburger { display: flex;}
-      header { height: var(--nav-height);}
-      .nav-social {gap: 0.8rem;}
-    }
-    /* HERO */
-    .hero {
-      min-height: 80vh;
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; text-align: center; padding-top: 90px;
-      background: linear-gradient(120deg, #132136 60%, #15bbf9 210%);
-      position: relative; z-index: 1;
-    }
-    .hero-content {
-      background: var(--glass); border-radius: 2.8rem; box-shadow: var(--shadow);
-      padding: 34px 7vw 28px 7vw; max-width: 650px;
-      margin: 24px 0;
-    }
-    .hero-title {
+    .sidebar h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.15rem; font-weight: 900; letter-spacing: 0.01em;
-      color: var(--main);
-      margin: 0 0 10px 0;
-      background: linear-gradient(90deg,var(--main),var(--highlight),var(--primary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-size: 1.28rem; letter-spacing: .06em;
+      color: var(--accent);
+      margin: 0 0 32px 0; font-weight: 900;
+      display: flex; align-items: center; gap: .6em;
     }
-    .hero-role { color: var(--highlight); font-size: 1.09rem; font-weight: 800; margin-bottom: 20px;}
-    .hero-desc {
-      color: #aaf1e9;
-      font-size: 1.06rem; margin-bottom: 28px; line-height: 1.65;
+    .sidebar nav { display: flex; flex-direction: column; gap: 1.5em; width: 100%; }
+    .sidebar nav a {
+      color: var(--text); text-decoration: none;
+      font-size: 1.08rem; font-weight: 700; padding: 8px 36px;
+      border-left: 3.2px solid transparent; transition: .17s;
     }
-    .hero-badges {display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 22px;}
-    .hero-badge {
-      background: #183e3c99; color: var(--primary); font-weight: 700;
-      border: 1px solid #27fad6aa; border-radius: 100px; padding: 7px 13px; font-size: 13px;
+    .sidebar nav a.active, .sidebar nav a:hover {
+      color: var(--accent); background: #09283360;
+      border-left: 3.2px solid var(--accent);
+    }
+    .sidebar .social { margin-top: auto; display: flex; gap: 1.4em;}
+    .sidebar .social a {
+      color: var(--primary); font-size: 1.3rem; border-radius: 50%;
+      background: #0c232b66; padding: 8px; transition: background .14s, color .17s;
+    }
+    .sidebar .social a:hover { background: var(--accent); color: #192736;}
+    .sidebar .mobile-toggle { display: none; }
+
+    .main {
+      margin-left: 260px; width: 100%; padding: 0 0 40px 0;
+      display: flex; flex-direction: column; min-height: 100vh;
+      transition: margin-left .3s;
+    }
+    .container { max-width: 930px; margin: 0 auto; padding: 35px 24px 10px 24px; }
+
+    .hero {
+      margin: 56px 0 33px 0; text-align: center; position: relative;
+    }
+    .avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%; margin: 0 auto 19px auto;
+      background: linear-gradient(120deg, var(--accent) 30%, var(--primary) 90%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 24px #41d6ff33;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2.7rem; color: #fff; font-weight: 900;
+      border: 4px solid #072129bb;
+    }
+    .hero h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: 2.05rem; font-weight: 900; color: var(--accent); margin: 0; }
+    .hero .role { color: var(--highlight); font-weight: 800; font-size: 1.15rem; margin: 9px 0 17px 0;}
+    .hero .desc { color: var(--muted); font-size: 1.11rem; margin-bottom: 18px;}
+    .hero .badges { display: flex; flex-wrap: wrap; gap: 0.6em; justify-content: center; margin: 11px 0;}
+    .hero .badge {
+      background: #2ec6ab2a; color: var(--accent); font-weight: 700;
+      border-radius: 40px; padding: 7px 16px; font-size: 13px; border: 1.2px solid #41d6ff66;
       margin-bottom: 6px;
-      transition: all .2s;
     }
-    .hero-badge:hover { background: #22efca33;}
-    .hero-cta {
-      display: inline-block; margin-top: 5px; font-size: 1.07rem; font-weight: 800;
-      background: linear-gradient(90deg,var(--primary) 60%,var(--accent));
-      color: #10151b; padding: 13px 30px; border-radius: 100px; text-decoration: none;
-      letter-spacing: .03em; box-shadow: 0 6px 25px #1cf0ad33; transition: background .19s, color .14s;
-      border: none; cursor: pointer;
-    }
-    .hero-cta:hover { background: var(--highlight); color: #111d24;}
-    /* MAIN CARDS */
-    .section {
-      max-width: 950px; margin: 38px auto 0 auto; background: var(--card); border-radius: var(--radius);
-      box-shadow: var(--shadow); padding: 21px 4vw 18px 4vw; position: relative;
-      animation: fadeInUp 1s both;
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(32px);}
-      to   {opacity: 1; transform: none;}
-    }
-    .section h2 {
-      font-family: 'Montserrat', Arial, sans-serif; color: var(--primary); font-weight: 900;
-      font-size: 1.21rem; letter-spacing: .05em; margin-bottom: 15px; position: relative;
-    }
-    .section h2:after { content: ''; position: absolute; left: 0; bottom: -8px; width: 41px; height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--highlight)); border-radius: 2px;
+    /* CARD SECTIONS */
+    section {margin: 30px 0 0 0;}
+    .section-title {
+      font-family: 'Montserrat', Arial, sans-serif; color: var(--primary);
+      font-size: 1.23rem; letter-spacing: .08em; font-weight: 900; margin-bottom: 15px;
     }
     .card-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 14px; margin-top: 13px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
     }
     .card {
-      background: #202735e0; border-left: 4px solid var(--main); border-radius: 1rem;
-      box-shadow: 0 1px 9px #22c3e622; padding: 16px 9px 11px 13px; min-height: 80px; transition: all 0.17s;
-      font-size: 1rem;
-    }
-    .card:hover { border-left: 4px solid var(--highlight); background: #233054;}
-    .card-title {color: var(--highlight); font-weight: 900; font-size: 1rem; margin-bottom: 7px; display: flex; align-items: center; gap: 0.6em;}
-    .card-desc {color: var(--muted);}
-    .card-key {color: var(--primary); font-weight: 700;}
-    /* CONTACT BAR (fixed for mobile) */
-    .connect-bar {
-      max-width: 880px; margin: 32px auto 0 auto; background: var(--main-dark);
-      border-radius: 1.2rem; padding: 19px 6vw 14px 6vw; box-shadow: var(--shadow); text-align: center;
-      border: 2.5px solid var(--primary);
+      background: var(--glass); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 27px 19px 21px 19px; min-height: 105px; border: 1.6px solid #21ffd011;
+      transition: box-shadow .17s, border .19s;
       position: relative;
     }
-    .connect-title {font-size: 1.11rem; color: var(--highlight); font-weight: 800; margin-bottom: 10px;}
-    .connect-links {display: flex; gap: 2rem; justify-content: center; align-items: center;}
-    .connect-link {
-      display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.04rem;
-      color: var(--main); text-decoration: none; background: #17202f66; border-radius: 99px;
-      padding: 9px 19px; border: 2px solid #16c6e6bb; margin: 3px 0; transition: background .14s, color .13s;
+    .card:hover { box-shadow: 0 6px 34px #41d6ff2c; border: 1.6px solid var(--primary);}
+    .card-title {
+      color: var(--highlight); font-weight: 900; font-size: 1.1rem; margin-bottom: 7px; display: flex; align-items: center; gap: .5em;
     }
-    .connect-link i {font-size: 1.17em;}
-    .connect-link:hover {background: var(--primary); color: #132031; border-color: var(--highlight);}
-    @media (max-width: 750px) {
-      .section, .connect-bar {padding: 10px 2vw 8px 2vw;}
-      .card-grid, .connect-links {grid-template-columns: 1fr; flex-direction: column; gap: 10px;}
-      .card, .connect-link { width: 100%; margin-bottom: 6px;}
-      .connect-bar {
-        position: fixed; left: 0; bottom: 0; width: 100vw; z-index: 1002;
-        border-radius: 0; margin: 0; border-left: none; border-right: none; border-bottom: none;
-        background: var(--card);
-        box-shadow: 0 -6px 28px #18c5ec2d;
-      }
-      body {padding-bottom: 130px;}
+    .card-desc {color: var(--muted);}
+    /* Contact */
+    .contact-bar {
+      background: var(--glass); border-radius: 2.3rem;
+      margin: 48px 0 0 0; padding: 21px 6vw; text-align: center; box-shadow: var(--shadow);
+      border: 2.5px solid var(--primary);
     }
+    .contact-title { color: var(--highlight); font-weight: 900; font-size: 1.16rem; margin-bottom: 14px;}
+    .contact-links { display: flex; gap: 2em; justify-content: center; flex-wrap: wrap; margin-top: 7px;}
+    .contact-link {
+      display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.12rem;
+      color: var(--accent); text-decoration: none; background: #102733a6; border-radius: 99px;
+      padding: 12px 24px; border: 2px solid #21ffd088; margin: 3px 0; transition: background .15s, color .13s;
+    }
+    .contact-link i {font-size: 1.13em;}
+    .contact-link:hover {background: var(--primary); color: #0d1722; border-color: var(--highlight);}
+    /* Footer */
     footer {
-      margin-top: 30px; color: #8eb6d7; font-size: 0.97rem; padding: 20px 0 22px;
-      text-align: center; background: #10151b;
-      border-top: 1.5px solid #1cf0ad38;
+      margin-top: 35px; color: #91b4d8; font-size: 0.98rem; padding: 22px 0 13px;
+      text-align: center;
+    }
+    /* Responsive/mobile */
+    @media (max-width: 990px) {
+      .main { margin-left: 0; }
+      .sidebar { left: -260px;}
+      .sidebar.open { left: 0;}
+      .main.overlay { position: fixed; width: 100vw; height: 100vh; background: #0110158a; z-index: 101; overflow-y: hidden;}
+      .container {padding: 25px 3vw 10px 3vw;}
+      .card-grid {grid-template-columns: 1fr;}
+    }
+    @media (max-width: 600px) {
+      .sidebar { width: 80vw; min-width: 190px; padding: 28px 0 15px 0;}
+      .avatar {width: 80px; height: 80px; font-size: 2.1rem;}
+      .container {padding: 12px 2vw;}
+      .card {padding: 18px 10px;}
+      .contact-bar {padding: 13px 2vw;}
+    }
+    .mobile-toggle {
+      display: none; position: absolute; left: 15px; top: 18px; background: none;
+      border: none; color: var(--accent); font-size: 2rem; z-index: 1002; cursor: pointer;
+    }
+    @media (max-width:990px) {
+      .mobile-toggle {display: block;}
+      .sidebar .mobile-toggle {display: block; position: absolute; top: 18px; right: 18px; left: auto;}
     }
   </style>
 </head>
 <body>
-  <!-- HEADER/NAV -->
-  <header>
-    <div class="nav-container">
-      <div class="nav-logo"><i class="fas fa-car-side"></i> Swaroop Reddy</div>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="nav-links" id="nav-links">
-        <a href="#about" class="active">About</a>
-        <a href="#skills">Automotive QA Skills</a>
-        <a href="#projects">Projects</a>
-      </div>
-      <div class="nav-social">
-        <a href="mailto:swaroop95507@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/swaroop-reddy-gujjula-42822a98" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
+  <button class="mobile-toggle" id="menuOpen" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+  <aside class="sidebar" id="sidebar">
+    <button class="mobile-toggle" id="menuClose" aria-label="Close Menu"><i class="fas fa-times"></i></button>
+    <h1><i class="fas fa-car-side"></i> Swaroop Reddy</h1>
+    <nav>
+      <a href="#about" class="active">About</a>
+      <a href="#skills">QA Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social">
+      <a href="mailto:swaroop95507@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/swaroop-reddy-gujjula-42822a98" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
-  </header>
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-title">Swaroop Reddy</div>
-      <div class="hero-role"><i class="fas fa-cogs"></i> Automotive Quality Assurance Leader</div>
-      <div class="hero-desc">
-        Championing world-class quality and compliance in automotive manufacturing.<br>
-        Transforming systems, processes, and teams for a safer, smarter, and more efficient mobility future.
-      </div>
-      <div class="hero-badges">
-        <span class="hero-badge">IATF 16949</span>
-        <span class="hero-badge">FMEA</span>
-        <span class="hero-badge">Problem Solving</span>
-        <span class="hero-badge">SPC</span>
-        <span class="hero-badge">Root Cause Analysis</span>
-        <span class="hero-badge">Lean Manufacturing</span>
-      </div>
-      <a href="#contact" class="hero-cta">Let’s Connect</a>
+  </aside>
+  <main class="main" id="main">
+    <div class="container">
+      <!-- Hero -->
+      <section class="hero" id="about">
+        <div class="avatar">SR</div>
+        <h2>Swaroop Reddy</h2>
+        <div class="role"><i class="fas fa-cogs"></i> Automotive Quality Assurance Leader</div>
+        <div class="desc">
+          Passionate about building a culture of quality, compliance, and digital transformation in the automotive industry. <br>
+          I deliver proven results through leadership, cross-functional teamwork, and relentless problem solving.
+        </div>
+        <div class="badges">
+          <span class="badge">Leadership</span>
+          <span class="badge">IATF 16949</span>
+          <span class="badge">FMEA</span>
+          <span class="badge">SPC</span>
+          <span class="badge">8D Problem Solving</span>
+          <span class="badge">Lean Manufacturing</span>
+        </div>
+      </section>
+      <!-- Skills -->
+      <section id="skills">
+        <div class="section-title">Automotive QA Skills</div>
+        <div class="card-grid">
+          <div class="card"><div class="card-title"><i class="fas fa-award"></i> QMS: IATF 16949 & ISO 9001</div>
+            <div class="card-desc">Develop, implement, and audit automotive quality management systems for compliance and excellence.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-project-diagram"></i> APQP & PPAP</div>
+            <div class="card-desc">Drive Advanced Product Quality Planning and prepare robust PPAP packages for new product launches.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-search"></i> FMEA & Risk Analysis</div>
+            <div class="card-desc">Lead cross-functional FMEAs, risk assessment, and mitigation for process and design changes.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-chart-bar"></i> SPC & Data Analytics</div>
+            <div class="card-desc">Implement process controls, capability studies, and data analytics to ensure process stability.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-users-cog"></i> Supplier Quality</div>
+            <div class="card-desc">Qualify and develop suppliers, conduct audits, and drive improvements with 8D containment.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-industry"></i> Layered Audits</div>
+            <div class="card-desc">Design, execute, and verify layered process and product audits across the manufacturing value chain.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-lightbulb"></i> Root Cause & 8D</div>
+            <div class="card-desc">Facilitate root cause analysis, 5 Whys, and fast, effective countermeasures using 8D methodology.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-tablet-alt"></i> Digital Transformation</div>
+            <div class="card-desc">Spearhead digital inspection, traceability, and Industry 4.0 analytics for real-time quality control.</div></div>
+          <div class="card"><div class="card-title"><i class="fas fa-chart-pie"></i> KPI & Quality Costing</div>
+            <div class="card-desc">Track OEE, FPY, COPQ, warranty, and cost of quality to drive performance and financial impact.</div></div>
+        </div>
+      </section>
+      <!-- Projects -->
+      <section id="projects">
+        <div class="section-title">Project Highlights</div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title"><i class="fas fa-robot"></i> Vision Inspection System</div>
+            <div class="card-desc">Developed an AI-based system for real-time defect detection and automatic sorting in high-volume assembly.</div>
+          </div>
+          <div class="card">
+            <div class="card-title"><i class="fas fa-database"></i> Digital Traceability Platform</div>
+            <div class="card-desc">Implemented plant-wide digital traceability and analytics for rapid root cause and supplier response.</div>
+          </div>
+          <div class="card">
+            <div class="card-title"><i class="fas fa-chart-line"></i> Quality Dashboard</div>
+            <div class="card-desc">Launched an interactive dashboard visualizing FPY, OEE, and warranty data for decision support.</div>
+          </div>
+          <div class="card">
+            <div class="card-title"><i class="fas fa-users"></i> Supplier Improvement</div>
+            <div class="card-desc">Led a supplier project reducing PPM by 45% via audits, technical coaching, and rapid containment.</div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact -->
+      <section class="contact-bar" id="contact">
+        <div class="contact-title"><i class="fas fa-paper-plane"></i> Ready to connect or collaborate?</div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:swaroop95507@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/swaroop-reddy-gujjula-42822a98" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </section>
+      <footer>
+        &copy; 2024 Swaroop Reddy. Automotive Quality Assurance Portfolio.
+      </footer>
     </div>
-  </section>
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <h2>About Me</h2>
-    <p>
-      Experienced QA leader with a decade in automotive manufacturing. I drive cross-functional collaboration and continuous improvement, leveraging my deep knowledge of <strong>IATF 16949</strong>, <strong>FMEA</strong>, and <strong>advanced quality planning</strong>.<br>
-      I thrive on building quality culture, launching new products, and integrating digital solutions—from shop floor to boardroom.
-    </p>
-    <p>
-      <b>Strengths:</b> Leadership, analytics, digital transformation, process audit, supplier quality, customer satisfaction, and relentless problem solving.
-    </p>
-  </section>
-  <!-- SKILLS / EXPERTISE -->
-  <section class="section" id="skills">
-    <h2>Automotive Quality Assurance Skills</h2>
-    <div class="card-grid">
-      <div class="card"><div class="card-title"><i class="fas fa-award"></i> IATF 16949 & ISO 9001</div>
-        <div class="card-desc">Developing, implementing, and auditing world-class automotive QMS for regulatory and customer compliance.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-project-diagram"></i> APQP & PPAP</div>
-        <div class="card-desc">Driving Advanced Product Quality Planning, preparing robust PPAP packages, and ensuring flawless launches.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-search"></i> FMEA & Risk Analysis</div>
-        <div class="card-desc">Leading cross-functional teams for process and design FMEAs, risk ranking, and mitigation planning.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-chart-bar"></i> SPC & Data Analytics</div>
-        <div class="card-desc">Implementing control charts, capability studies, and advanced analytics to ensure process stability and improvement.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-industry"></i> Layered Process Audits</div>
-        <div class="card-desc">Designing, executing, and closing out process and product audits across manufacturing and assembly.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-users-cog"></i> Supplier Quality</div>
-        <div class="card-desc">Qualifying and developing suppliers, conducting audits, and resolving issues using 8D and containment.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-lightbulb"></i> Root Cause & 8D</div>
-        <div class="card-desc">Mastering root cause tools (5 Whys, Ishikawa, Fishbone) and championing fast, effective countermeasures.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-sitemap"></i> Launch & Change Management</div>
-        <div class="card-desc">Managing process changes, control plans, and robust change point management for automotive launches.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-tablet-alt"></i> Digital Transformation</div>
-        <div class="card-desc">Spearheading digital inspection systems, traceability, and analytics for Industry 4.0 quality control.</div>
-      </div>
-      <div class="card"><div class="card-title"><i class="fas fa-chart-pie"></i> KPI & Quality Costing</div>
-        <div class="card-desc">Tracking OEE, FPY, COPQ, warranty, and cost of quality to drive performance and financial impact.</div>
-      </div>
-    </div>
-  </section>
-  <!-- PROJECTS / SHOWCASE
-  <!-- PROJECTS / SHOWCASE -->
-  <section class="section" id="projects">
-    <h2>Project Highlights</h2>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-title"><i class="fas fa-robot"></i> Vision Inspection System</div>
-        <div class="card-desc">Developed an AI-powered vision system for real-time defect detection and automatic sorting on a high-speed automotive assembly line.</div>
-      </div>
-      <div class="card">
-        <div class="card-title"><i class="fas fa-database"></i> Digital Traceability Platform</div>
-        <div class="card-desc">Implemented a plant-wide digital traceability system, integrating supplier, shop floor, and customer feedback data for rapid root cause analysis.</div>
-      </div>
-      <div class="card">
-        <div class="card-title"><i class="fas fa-chart-line"></i> Quality Dashboard</div>
-        <div class="card-desc">Launched an interactive analytics dashboard for FPY, OEE, audit findings, and warranty trends, supporting real-time quality decisions.</div>
-      </div>
-      <div class="card">
-        <div class="card-title"><i class="fas fa-users"></i> Supplier Improvement Program</div>
-        <div class="card-desc">Led a multi-site supplier quality project, reducing PPM by 45% through targeted audits, containment, and technical coaching.</div>
-      </div>
-    </div>
-  </section>
-  <!-- CONTACT BAR -->
-  <section class="connect-bar" id="contact">
-    <div class="connect-title"><i class="fas fa-paper-plane"></i> Ready to connect or collaborate?</div>
-    <div class="connect-links">
-      <a class="connect-link" href="mailto:swaroop95507@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-      <a class="connect-link" href="https://www.linkedin.com/in/swaroop-reddy-gujjula-42822a98" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    </div>
-  </section>
-  <footer>
-    &copy; 2024 Swaroop Reddy. Automotive Quality Assurance Portfolio.
-  </footer>
+  </main>
   <script>
-    // Mobile Hamburger Nav
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.onclick = function() {
-      navLinks.classList.toggle('open');
-    };
-    // Close nav on link click (mobile)
-    Array.from(document.querySelectorAll('.nav-links a')).forEach(link => {
-      link.onclick = () => { navLinks.classList.remove('open'); }
+    // Sidebar Mobile
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const openBtn = document.getElementById('menuOpen');
+    const closeBtn = document.getElementById('menuClose');
+    openBtn.onclick = function() {
+      sidebar.classList.add('open');
+      main.classList.add('overlay');
+    }
+    closeBtn.onclick = function() {
+      sidebar.classList.remove('open');
+      main.classList.remove('overlay');
+    }
+    // Close sidebar when link clicked (mobile)
+    Array.from(document.querySelectorAll('.sidebar nav a')).forEach(link => {
+      link.onclick = () => {
+        sidebar.classList.remove('open');
+        main.classList.remove('overlay');
+      }
     });
   </script>
 </body>
