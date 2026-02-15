@@ -4,39 +4,40 @@ trigger:
       - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: SelfHosted
 
 steps:
   - checkout: self
     persistCredentials: false
 
-  - bash: |
-      set -e
+  - powershell: |
+      $ErrorActionPreference = "Stop"
 
-      echo "Publishing static site to gh-pages..."
+      Write-Host "Publishing static site to gh-pages..."
 
-      git config --global user.email "azure-pipelines@local"
-      git config --global user.name "Azure Pipelines"
+      git config user.email "azure-pipelines@local"
+      git config user.name "Azure Pipelines"
 
-      rm -rf publish
-      mkdir -p publish
+      # clean publish folder
+      if (Test-Path publish) { Remove-Item publish -Recurse -Force }
+      New-Item -ItemType Directory -Path publish | Out-Null
 
-      rsync -av --delete \
-        --exclude ".git" \
-        --exclude "publish" \
-        --exclude "azure-pipelines.yml" \
-        ./ publish/
+      # Copy everything except .git, publish, and yaml
+      robocopy .\ publish /E /XD .git publish /XF azure-pipelines.yml | Out-Null
 
       cd publish
+
       git init
       git checkout -b gh-pages
 
-      git remote add origin "https://$(GITHUB_PAT)@github.com/$(Build.Repository.Name).git"
+      $repo = "$(Build.Repository.Name)"
+      git remote add origin "https://$(GITHUB_PAT)@github.com/$repo.git"
 
       git add -A
-      git commit -m "Deploy GitHub Pages (Build $(Build.BuildId))" || echo "No changes to commit"
+      git commit -m "Deploy GitHub Pages (Build $(Build.BuildId))" 2>$null
+      if ($LASTEXITCODE -ne 0) { Write-Host "No changes to commit (ok)" }
+
       git push -u origin gh-pages --force
     env:
       GITHUB_PAT: $(GITHUB_PAT)
-    displayName: "Deploy to GitHub Pages"
-
+    displayName: "Deploy to GitHub Pages (Windows agent)"
