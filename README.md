@@ -1,2 +1,0 @@
-# Srg
-My portfolio
