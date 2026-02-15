@@ -15,8 +15,9 @@ steps:
 
       Write-Host "Publishing static site to gh-pages..."
 
-      git config user.email "azure-pipelines@local"
-      git config user.name "Azure Pipelines"
+      git config --global user.email "azure-pipelines@local"
+      git config --global user.name "Azure Pipelines"
+
 
       # clean publish folder
       if (Test-Path publish) { Remove-Item publish -Recurse -Force }
