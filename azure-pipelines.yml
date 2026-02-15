@@ -1,1 +1,42 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    persistCredentials: false
+
+  - bash: |
+      set -e
+
+      echo "Publishing static site to gh-pages..."
+
+      git config --global user.email "azure-pipelines@local"
+      git config --global user.name "Azure Pipelines"
+
+      rm -rf publish
+      mkdir -p publish
+
+      rsync -av --delete \
+        --exclude ".git" \
+        --exclude "publish" \
+        --exclude "azure-pipelines.yml" \
+        ./ publish/
+
+      cd publish
+      git init
+      git checkout -b gh-pages
+
+      git remote add origin "https://$(GITHUB_PAT)@github.com/$(Build.Repository.Name).git"
+
+      git add -A
+      git commit -m "Deploy GitHub Pages (Build $(Build.BuildId))" || echo "No changes to commit"
+      git push -u origin gh-pages --force
+    env:
+      GITHUB_PAT: $(GITHUB_PAT)
+    displayName: "Deploy to GitHub Pages"
 
